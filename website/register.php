@@ -17,8 +17,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = $conn->real_escape_string($_POST['email']);
     $phone_number = (int)$_POST['phone_number']; // Casting to int for the INT field in the database
 
-    // Password hashing (if needed for login systems)
-    $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
 
     // Insert user data into the database
     $query = "INSERT INTO users (first_name, last_name, email, phone_number) 
