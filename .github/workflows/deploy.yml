@@ -1,3 +1,5 @@
+name: Upload website to S3
+
 on:
   push:
     branches:
