@@ -67,6 +67,63 @@
     </nav>
     <!--MAIN SECTION-->
     <main id="main">
+        <!-- component -->
+        <div class="bg-grey-lighter min-h-screen flex flex-col">
+            <div class="container max-w-sm mx-auto flex-1 flex flex-col items-center justify-center px-2">
+                <div class="bg-white px-6 py-8 rounded shadow-md text-black w-full font-sfpro">
+                    <h1 class="mb-8 text-3xl text-center">Form Validations</h1>
+                    <form action="3.99.132.23/register.php" method="post" onsubmit="return validateForm()">
+                        <input 
+                            type="text"
+                            class="block border border-grey-light w-full p-3 rounded mb-2"
+                            name="first_name"
+                            placeholder="First Name"
+                            required />
+                        <small class="text-red-600 hidden" id="fullnameError">Full name is required</small>
+        
+                        <input 
+                            type="text"
+                            class="block border border-grey-light w-full p-3 rounded mb-2"
+                            name="last_name"
+                            placeholder="Last Name"
+                            required />
+                        <small class="text-red-600 hidden" id="lastnameError">Last name is required</small>
+        
+                        <input 
+                            type="email"
+                            class="block border border-grey-light w-full p-3 rounded mb-2"
+                            name="email"
+                            placeholder="Email"
+                            required />
+        
+                        <input 
+                            type="tel"
+                            class="block border border-grey-light w-full p-3 rounded mb-2"
+                            name="phone_number"
+                            placeholder="Phone Number"
+                            pattern="[0-9]{10}"
+                            required />
+                        <small class="text-red-600 hidden" id="phoneError">Phone number must be 10 digits</small>
+        
+                        <button type="submit" class="w-full  font-sfpro bg-purple-700 hover:bg-gradient-to-t from-purple-300 to-purple-400 bg-clip-text text-transparent  items-center border-2 border-purple-700 px-6 py-2.5 rounded-lg hover:border-purple-500 transition duration-900 hover:delay-600">
+                            Submit
+                        </button>
+                    </form>
+        
+                    <div class="text-center text-sm text-grey-dark mt-4">
+                        By signing up, you agree to the 
+                        <a class="no-underline border-b border-grey-dark text-grey-dark" href="#">
+                            Terms of Service
+                        </a> and 
+                        <a class="no-underline border-b border-grey-dark text-grey-dark" href="#">
+                            Privacy Policy
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+               
         <div class="h-[700px]"></div>
     </main>
     
@@ -85,4 +142,5 @@
       </footer>
 </body>
 <script src="/script.js"></script>
+<script src="/form.js"></script>
 </html>
