@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="output.css">
+    <link rel="stylesheet" href="styles.css">
+    <title>Portflio Himanshu</title>
+</head> 
+<body class="bg-bgColour ">
+    <!--NAVBAR-->
+    <nav class="p-3 flex bg-bgColour justify-between items-center ">
+        <a href="/index.html" id="navBar" class="flex gap-2 items-center">
+            <span class=" p-4 text-lg font-sfpro bg-gradient-to-t from-purple-300 to-purple-400 bg-clip-text text-transparent font-semibold">
+                Himanshu Singh
+            </span>
+        </a>
+        <div id="nav-menu" class="hidden lg:flex gap-16 ">
+            <a href="#about-me" class=" hover:motion-preset-oscillate-sm bg-white font-sfpro hover:bg-gradient-to-t from-purple-300 to-purple-400 bg-clip-text text-transparent transition duration-900 hover:delay-600 hover:scale-110 duration-300 ">About me</a>
+            <a href="#projects" class="bg-white hover:motion-preset-oscillate-sm font-sfpro hover:bg-gradient-to-t from-purple-300 to-purple-400 bg-clip-text text-transparent transition duration-900 hover:delay-600 hover:scale-110 duration-300">Projects</a>
+            <a href="#" class="bg-white hover:motion-preset-oscillate-sm font-sfpro hover:bg-gradient-to-t from-purple-300 to-purple-400 bg-clip-text text-transparent transition duration-900 hover:delay-600 hover:scale-110 duration-300">Skills</a>
+            <a href="#" class="bg-white hover:motion-preset-oscillate-sm font-sfpro hover:bg-gradient-to-t from-purple-300 to-purple-400 bg-clip-text text-transparent transition duration-900 hover:delay-600 hover:scale-110 duration-300">Blogs</a>
+            <a href="#"  class="bg-white hover:motion-preset-oscillate-sm font-sfpro hover:bg-gradient-to-t from-purple-300 to-purple-400 bg-clip-text text-transparent transition duration-900 hover:delay-600 hover:scale-110 duration-300">Login</a>
+
+        </div>
+        <a href="Himanshu_Resume (1).pdf" download="MyResume">
+            <button class="hidden lg:flex gap-2 mr-1 p-4 bg-white font-sfpro hover:bg-gradient-to-t from-purple-300 to-purple-400 bg-clip-text text-transparent  items-center border-2 border-white px-6 py-2.5 rounded-lg hover:border-primaryColour transition duration-900 hover:delay-600 hover:scale-95 duration-300">
+                <i class="fa-regular fa-file"></i>
+                <span>Download Resume</span>
+            </button>
+        </a>
+
+        <button class="p-2 lg:hidden" onclick="handleMenu()">
+            <i class="fa-solid fa-bars bg-gradient-to-t from-purple-300 to-purple-400 bg-clip-text text-transparent"></i>
+        </button>
+
+        <div id="nav-dialog" class="hidden fixed z-10 lg:hidden bg-bgColour inset-0">
+            <div id="nav-bar" class="p-3 flex bg-bgColour justify-between items-center">
+                <span class=" p-2 text-lg font-sfpro bg-gradient-to-t from-purple-300 to-purple-400 bg-clip-text text-transparent font-semibold">
+                    Himanshu Singh
+                </span>
+                <button class="p-2 lg:hidden" onclick="handleMenu()">
+                    <i class="fa-solid fa-xmark bg-gradient-to-t from-purple-300 to-purple-400 bg-clip-text text-transparent"></i>
+                </button>
+            </div>
+            <div class="">
+                <a href="#about-me" class=" p-3 m-3 block bg-white font-sfpro hover:bg-gradient-to-t from-purple-300 to-purple-400 bg-clip-text text-transparent transition duration-900 hover:delay-600 hover:scale-105 duration-300">About me</a>
+                <a href="#projects" class=" hover:motion-preset-oscillate-sm p-3 m-3 block bg-white font-sfpro hover:bg-gradient-to-t from-purple-300 to-purple-400 bg-clip-text text-transparent transition duration-900 hover:delay-600 hover:scale-105 duration-300">Projects</a>
+                <a href="#" class=" hover:motion-preset-oscillate-sm p-3 m-3 block bg-white font-sfpro hover:bg-gradient-to-t from-purple-300 to-purple-400 bg-clip-text text-transparent transition duration-900 hover:delay-600 hover:scale-105 duration-300">Skills</a>
+                <a href="#" class=" hover:motion-preset-oscillate-sm p-3 m-3 block bg-white font-sfpro hover:bg-gradient-to-t from-purple-300 to-purple-400 bg-clip-text text-transparent transition duration-900 hover:delay-600 hover:scale-105 duration-300">Blogs</a>
+                <a href="#" class=" hover:motion-preset-oscillate-sm p-3 m-3 block bg-white font-sfpro hover:bg-gradient-to-t from-purple-300 to-purple-400 bg-clip-text text-transparent transition duration-900 hover:delay-600 hover:scale-105 duration-300">Login</a>
+                <div class="h-[1px] bg-primaryColour opacity-60"></div>
+                <a href="Himanshu_Resume (1).pdf" download="MyResume">
+                    <button class="flex m-4 gap-2 p-3  font-sfpro bg-white hover:bg-gradient-to-t from-purple-300 to-purple-400 bg-clip-text text-transparent  items-center border-2 border-white px-6 py-2.5 rounded-lg hover:border-primaryColour transition duration-900 hover:delay-600">
+                        <i class="fa-regular fa-file"></i>
+                        <span>Download Resume</span>
+                    </button>
+                </a>
+            </div>
+
+
+        </div>
+
+    </nav>
+    <!--MAIN SECTION-->
+    <main id="main">
+        <div class="h-[700px]"></div>
+    </main>
+    
+    <footer id="footer" class="mt-16 font-sfpro">
+        <hr class="h-0.5 border-t-0 bg-bgColour opacity-80">
+        <div class="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 lg:px-8 flex flex-col items-center">
+          <div class="flex justify-center text-black">
+            <span class="text-lg font-sfpro bg-gradient-to-t from-purple-300 to-purple-400 bg-clip-text text-transparent font-semibold">
+              Himanshu Singh
+            </span>
+          </div>
+          <p class="mt-4 text-center text-sm text-white">
+            Copyright &copy; 2024. All rights reserved.
+          </p>
+        </div>
+      </footer>
+</body>
+<script src="/script.js"></script>
+</html>
