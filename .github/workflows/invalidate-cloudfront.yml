@@ -13,7 +13,7 @@ jobs:
 
     steps:
       - name: Invalidate CloudFront Cache
-        uses: aws-actions/aws-cloudfront-invalidate-cache@v1
+        uses: aws-actions/amazon-cloudfront-invalidate@v1
         with:
           distribution-id: ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }}
           paths: '/*'
