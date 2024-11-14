@@ -67,62 +67,73 @@
     </nav>
     <!--MAIN SECTION-->
     <main id="main">
-        <!-- component -->
-        <div class="bg-grey-lighter min-h-screen flex flex-col">
-            <div class="container max-w-sm mx-auto flex-1 flex flex-col items-center justify-center px-2">
-                <div class="bg-white px-6 py-8 rounded shadow-md text-black w-full font-sfpro">
-                    <h1 class="mb-8 text-3xl text-center">Form Validations</h1>
-                    <form name="myform" action="https://huesofhimanshu.com/register.php"  onsubmit="return validateForm()" method="post">
-                        <input 
-                            type="text"
-                            class="block border border-grey-light w-full p-3 rounded mb-2"
-                            name="first_name"
-                            placeholder="First Name" />
-        
-                        <input 
-                            type="text"
-                            class="block border border-grey-light w-full p-3 rounded mb-2"
-                            name="last_name"
-                            placeholder="Last Name"
-                             />
-                        
-        
-                        <input 
-                            type="email"
-                            class="block border border-grey-light w-full p-3 rounded mb-2"
-                            name="email"
-                            placeholder="Email"
-                            required
-                            
-                             />
-        
-                        <input 
-                            type="tel"
-                            class="block border border-grey-light w-full p-3 rounded mb-2"
-                            name="phone_number"
-                            placeholder="Phone Number"
-                             />                                    
-                        <p id="demo"></p>
-        
-                        <button type="submit" class="w-full mt-6">
-                            <span class="text-lg hover:text-base font-semibold text-white font-sfpro border-2 bg-gradient-to-br from-purple-700 to-purple-800 border-purple-100 hover:opacity-95 hover:shadow-lg duration-300 rounded-lg w-fit px-4 py-2">Submit</span>
-                        </button>
-                        
-                    </form>
-        
-                    <div class="text-center text-sm text-grey-dark mt-4">
-                        Click to view 
-                        <a href="https://huesofhimanshu.com/report.php" class=" text-bgColour no-underline border-b border-grey-dark text-grey-dark" href="#">
-                            Report
-                        </a>
-                    </div>
+        <div class="flex flex-col items-center justify-center px-4 font-sfpro">
+            <div id="theblog" class="text-left max-w-full sm:max-w-2xl">
+                <h2 class="mt-8 pb-2 text-xl sm:text-2xl font-bold bg-gradient-to-tr from-purple-300 to-purple-400 bg-clip-text text-transparent font-sfpro hover:text-white transition duration-900 hover:delay-600 duration-300">
+                    Leveling Up with the AWS Cloud Resume Challenge
+                </h2>
+                <p class="text-white text-left mb-3 text-sm sm:text-base">Nov 15, 2024 -- by Himanshu Singh</p>
+    
+                <div class="carousel mb-4 pt-5">
+                    <img src="assets/aws.jpeg" alt="AWS Project Screenshot 1" class="w-full h-auto rounded-md">
                 </div>
+    
+                <p class="text-white mb-4 text-sm sm:text-base">
+                    I started the AWS Cloud Resume Challenge basically with two goals: one, it shows my technical skill, and two, it dives deep into the world of AWS services. To make this challenge even more rewarding, I integrated it into my curriculum at college, particularly COSC 219.
+                </p>
+    
+                <p class="text-white mb-4 pt-5 text-sm sm:text-base">
+                    <span class="font-bold text-sm sm:text-base sm:bg-gradient-to-tr sm:from-purple-700 sm:to-purple-400 sm:border sm:py-1 sm:px-2 sm:rounded-lg">
+                        Laying the Foundation: AWS Certified Cloud Practitioner
+                    </span>
+                    <br><br>
+                    I was preparing myself for this challenge by acquiring the AWS Certified Cloud Practitioner certification. This foundational accreditation equipped me with in-depth knowledge of core AWS services, concepts, and security best practices.
+                </p>
+    
+                <p class="text-white mb-4 pt-5 text-sm sm:text-base">
+                    <span class="font-bold text-sm sm:text-base sm:bg-gradient-to-tr sm:from-purple-700 sm:to-purple-400 sm:border sm:py-1 sm:px-2 sm:rounded-lg">
+                        Building the Frontend: A Superb Website
+                    </span>
+                    <br><br>
+                    I designed and developed an attractive website that highlighted my skills and experiences. To ensure this website performs at the highest level and reaches every corner of the globe, I statically published the website to an S3 bucket and distributed it on a CloudFront CDN. I also registered the domain name "huesofhimanshu" and configured it on Route 53.
+                </p>
+    
+                <p class="text-white mb-4 pt-5 text-sm sm:text-base">
+                    <span class="font-bold text-sm sm:text-base sm:bg-gradient-to-tr sm:from-purple-700 sm:to-purple-400 sm:border sm:py-1 sm:px-2 sm:rounded-lg">
+                        CI/CD Implementation: Automation of the Deployment Process
+                    </span>
+                    <br><br>
+                    To further ease the deployment process, I combined a CI/CD pipeline using GitHub Actions. This automated the process so that whenever a change was committed, it was built, tested, and deployed to the S3 bucket seamlessly.
+                </p>
+    
+                <p class="text-white mb-4 pt-5 text-sm sm:text-base">
+                    <span class="font-bold text-sm sm:text-base sm:bg-gradient-to-tr sm:from-purple-700 sm:to-purple-400 sm:border sm:py-1 sm:px-2 sm:rounded-lg">
+                        Adding Backend Functionality: Integrating into the Real World
+                    </span>
+                    <br><br>
+                    I extended the project to fit the requirements of COSC 219 by incorporating a backend. I launched an EC2 instance, installed Apache and MySQL, and deployed a PHP application. This involved administering the server and managing the database while configuring CloudFront to forward specific requests for seamless integration.
+                </p>
+    
+                <p class="text-white mb-4 pt-5 text-sm sm:text-base">
+                    <span class="font-bold text-sm sm:text-base sm:bg-gradient-to-tr sm:from-purple-700 sm:to-purple-400 sm:border sm:py-1 sm:px-2 sm:rounded-lg">
+                        User Authentication and Interaction with Database
+                    </span>
+                    <br><br>
+                    I implemented a visitor registration system that allowed users to sign up and log in, with registration data stored securely in the MySQL database.
+                </p>
+    
+                <p class="text-white mb-4 pt-5 text-sm sm:text-base">
+                    <span class="font-bold text-sm sm:text-base sm:bg-gradient-to-tr sm:from-purple-700 sm:to-purple-400 sm:border sm:py-1 sm:px-2 sm:rounded-lg">
+                        Conclusion
+                    </span>
+                    <br><br>
+                    Integrating the AWS Cloud Resume Challenge with COSC 219 requirements, I developed a dynamic web application that showcased my knowledge in AWS, server administration, and database management. I look forward to applying these skills in future projects and advancing my journey in cloud computing.
+                </p>
             </div>
         </div>
-
-               
-        <div class="h-[700px]"></div>
     </main>
+    
+    
     
     <footer id="footer" class="mt-16 font-sfpro">
         <hr class="h-0.5 border-t-0 bg-bgColour opacity-80">
@@ -139,5 +150,4 @@
       </footer>
 </body>
 <script src="/script.js"></script>
-<script src="/form.js"></script>
 </html>
