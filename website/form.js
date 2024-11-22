@@ -13,7 +13,7 @@ function validateForm() {
     }
 
     if (!phonePattern.test(phone)) {
-        text = "elephone must be filled out like this: 555-555-5555";
+        text = "Telephone must be filled out like this: 555-555-5555";
         document.getElementById("demo").innerHTML = text;
         return false;
     }
