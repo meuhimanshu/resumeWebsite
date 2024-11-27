@@ -3263,6 +3263,16 @@ video {
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
+.text-primaryColour{
+  --tw-text-opacity: 1;
+  color: rgb(165 126 198 / var(--tw-text-opacity));
+}
+
+.text-purple-400{
+  --tw-text-opacity: 1;
+  color: rgb(192 132 252 / var(--tw-text-opacity));
+}
+
 .underline{
   text-decoration-line: underline;
 }
