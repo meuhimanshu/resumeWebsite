@@ -1349,19 +1349,8 @@ video {
   margin-bottom: 2rem;
 }
 
-.mx-4{
-  margin-left: 1rem;
-  margin-right: 1rem;
-}
-
-.mx-2{
-  margin-left: 0.5rem;
-  margin-right: 0.5rem;
-}
-
-.mx-5{
-  margin-left: 1.25rem;
-  margin-right: 1.25rem;
+.-mt-16{
+  margin-top: -4rem;
 }
 
 .mb-14{
@@ -1424,20 +1413,8 @@ video {
   margin-top: 2rem;
 }
 
-.-mt-4{
-  margin-top: -1rem;
-}
-
-.-mt-8{
-  margin-top: -2rem;
-}
-
-.-mt-11{
-  margin-top: -2.75rem;
-}
-
-.-mt-16{
-  margin-top: -4rem;
+.mb-20{
+  margin-bottom: 5rem;
 }
 
 .box-border{
@@ -1564,6 +1541,26 @@ video {
 
 .h-full{
   height: 100%;
+}
+
+.h-5{
+  height: 1.25rem;
+}
+
+.h-1{
+  height: 0.25rem;
+}
+
+.h-10{
+  height: 2.5rem;
+}
+
+.h-3{
+  height: 0.75rem;
+}
+
+.h-8{
+  height: 2rem;
 }
 
 .max-h-40{
@@ -2217,6 +2214,10 @@ video {
 
 .gap-6{
   gap: 1.5rem;
+}
+
+.gap-5{
+  gap: 1.25rem;
 }
 
 .space-x-2 > :not([hidden]) ~ :not([hidden]){
@@ -4411,6 +4412,11 @@ html, body {
     margin-right: auto;
   }
 
+  .sm\:mx-6{
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+  }
+
   .sm\:mt-0{
     margin-top: 0px;
   }
@@ -4425,6 +4431,10 @@ html, body {
 
   .sm\:mt-4{
     margin-top: 1rem;
+  }
+
+  .sm\:flex{
+    display: flex;
   }
 
   .sm\:hidden{
@@ -4465,6 +4475,10 @@ html, body {
 
   .sm\:gap-4{
     gap: 1rem;
+  }
+
+  .sm\:gap-2{
+    gap: 0.5rem;
   }
 
   .sm\:rounded-lg{
