@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="/output.css">
+    <link rel="stylesheet" href="/styles.css">
+    <title>Portflio Himanshu</title>
+</head> 
+<body class="bg-bgColour ">
+    <!--NAVBAR-->
+    <nav class="p-3 flex bg-bgColour justify-between items-center ">
+        <a href="https://huesofhimanshu.com" id="navBar" class="flex gap-2 items-center">
+            <span class=" p-4 text-lg font-sfpro bg-gradient-to-t from-purple-300 to-purple-400 bg-clip-text text-transparent font-semibold">
+                Himanshu Singh
+            </span>
+        </a>
+        <div id="nav-menu" class="hidden lg:flex gap-16 ">
+            <a href="https://huesofhimanshu.com/#about-me" class=" hover:motion-preset-oscillate-sm bg-white font-sfpro hover:bg-gradient-to-t from-purple-300 to-purple-400 bg-clip-text text-transparent transition duration-900 hover:delay-600 hover:scale-110 duration-300 ">About me</a>
+            <a href="https://huesofhimanshu.com/#projects" class="bg-white hover:motion-preset-oscillate-sm font-sfpro hover:bg-gradient-to-t from-purple-300 to-purple-400 bg-clip-text text-transparent transition duration-900 hover:delay-600 hover:scale-110 duration-300">Projects</a>
+            <a href="https://huesofhimanshu.com/#skills" class="bg-white hover:motion-preset-oscillate-sm font-sfpro hover:bg-gradient-to-t from-purple-300 to-purple-400 bg-clip-text text-transparent transition duration-900 hover:delay-600 hover:scale-110 duration-300">Skills</a>
+            <a href="blogs.html" class="bg-white hover:motion-preset-oscillate-sm font-sfpro hover:bg-gradient-to-t from-purple-300 to-purple-400 bg-clip-text text-transparent transition duration-900 hover:delay-600 hover:scale-110 duration-300">Blogs</a>
+
+        </div>
+        <a href="himanshu_resume.pdf" download="himanshu-resume">
+            <button class="hidden lg:flex gap-2 mr-1 p-4 bg-white font-sfpro hover:bg-gradient-to-t from-purple-300 to-purple-400 bg-clip-text text-transparent  items-center border-2 border-white px-6 py-2.5 rounded-lg hover:border-primaryColour transition duration-900 hover:delay-600 hover:scale-95 duration-300">
+                <i class="fa-regular fa-file"></i>
+                <span>Download Resume</span>
+            </button>
+        </a>
+
+        <button class="p-2 lg:hidden" onclick="handleMenu()">
+            <i class="fa-solid fa-bars bg-gradient-to-t from-purple-300 to-purple-400 bg-clip-text text-transparent"></i>
+        </button>
+
+        <div id="nav-dialog" class="hidden fixed z-10 lg:hidden bg-bgColour inset-0">
+            <div id="nav-bar" class="p-3 flex bg-bgColour justify-between items-center">
+                <span class=" p-2 text-lg font-sfpro bg-gradient-to-t from-purple-300 to-purple-400 bg-clip-text text-transparent font-semibold">
+                    Himanshu Singh
+                </span>
+                <button class="p-2 lg:hidden" onclick="handleMenu()">
+                    <i class="fa-solid fa-xmark bg-gradient-to-t from-purple-300 to-purple-400 bg-clip-text text-transparent"></i>
+                </button>
+            </div>
+            <div class="">
+                <a href="https://huesofhimanshu.com/#about-me" class=" p-3 m-3 block bg-white font-sfpro hover:bg-gradient-to-t from-purple-300 to-purple-400 bg-clip-text text-transparent transition duration-900 hover:delay-600 hover:scale-105 duration-300">About me</a>
+                <a href="https://huesofhimanshu.com/#projects" class=" hover:motion-preset-oscillate-sm p-3 m-3 block bg-white font-sfpro hover:bg-gradient-to-t from-purple-300 to-purple-400 bg-clip-text text-transparent transition duration-900 hover:delay-600 hover:scale-105 duration-300">Projects</a>
+                <a href="https://huesofhimanshu.com/#skills" class=" hover:motion-preset-oscillate-sm p-3 m-3 block bg-white font-sfpro hover:bg-gradient-to-t from-purple-300 to-purple-400 bg-clip-text text-transparent transition duration-900 hover:delay-600 hover:scale-105 duration-300">Skills</a>
+                <a href="/blogs/blogs.html" class=" hover:motion-preset-oscillate-sm p-3 m-3 block bg-white font-sfpro hover:bg-gradient-to-t from-purple-300 to-purple-400 bg-clip-text text-transparent transition duration-900 hover:delay-600 hover:scale-105 duration-300">Blogs</a>
+                <div class="h-[1px] bg-primaryColour opacity-60"></div>
+                <a href="himanshu_resume.pdf" download="himanshu-resume">
+                    <button class="flex m-4 gap-2 p-3  font-sfpro bg-white hover:bg-gradient-to-t from-purple-300 to-purple-400 bg-clip-text text-transparent  items-center border-2 border-white px-6 py-2.5 rounded-lg hover:border-primaryColour transition duration-900 hover:delay-600">
+                        <i class="fa-regular fa-file"></i>
+                        <span>Download Resume</span>
+                    </button>
+                </a>
+            </div>
+
+
+        </div>
+
+    </nav>
+    <!--MAIN SECTION-->
+    <main id="main">
+        <div class="flex flex-col items-center justify-center px-4 font-sfpro">
+            <div id="theblog" class="text-left max-w-full sm:max-w-2xl">
+                <h2 class="mt-8 pb-2 text-xl sm:text-2xl font-bold bg-gradient-to-tr from-purple-300 to-purple-400 bg-clip-text text-transparent font-sfpro hover:text-white transition duration-900 hover:delay-600 duration-300">
+                    Building Responsive Web Applications
+                </h2>
+                <p class="text-white text-left mb-3 text-sm sm:text-base">Dec 01, 2024 -- by Himanshu Singh</p>
+    
+                <div class="carousel mb-4 pt-5">
+                 <a href="#" target="_blank" rel="noopener noreferrer">
+                    <img src="/assets/aws.jpeg" alt="Responsive Web Development" class="w-full h-auto rounded-md">
+                 </a>   
+                </div>
+    
+                <p class="text-white mb-4 text-sm sm:text-base">
+                    In today's digital landscape, creating web applications that work seamlessly across all devices is not just a nice-to-have—it's essential. 
+                    As a developer, I've learned that responsive design is the foundation of modern web development. Let me share my journey and insights 
+                    into building applications that adapt beautifully to any screen size.
+                </p>
+    
+                <p class="text-white mb-4 pt-5 text-sm sm:text-base">
+                    <span class="font-bold text-sm sm:text-base text-purple-300 sm:text-white sm:bg-gradient-to-tr sm:from-purple-700 sm:to-purple-400 sm:border sm:py-1 sm:px-2 sm:rounded-lg">
+                        1. The Mobile-First Approach
+                    </span>
+                    <br><br>
+                    Starting with mobile devices in mind has revolutionized how I approach web development. By designing for the smallest screens first, 
+                    I ensure that the core functionality and content are prioritized. This approach forces me to think about what's truly essential, 
+                    leading to cleaner, more focused user experiences.
+                </p>
+    
+                <p class="text-white mb-4 pt-5 text-sm sm:text-base">
+                    <span class="font-bold text-sm sm:text-base text-purple-300 sm:text-white sm:bg-gradient-to-tr sm:from-purple-700 sm:to-purple-400 sm:border sm:py-1 sm:px-2 sm:rounded-lg">
+                        2. CSS Grid and Flexbox Mastery
+                    </span>
+                    <br><br>
+                    Mastering CSS Grid and Flexbox has been a game-changer for my responsive layouts. Grid provides powerful two-dimensional layouts, 
+                    while Flexbox excels at one-dimensional layouts. Understanding when to use each has allowed me to create complex, responsive designs 
+                    with clean, maintainable code.
+                </p>
+
+                <p class="text-white mb-4 pt-5 text-sm sm:text-base">
+                    <span class="font-bold text-sm sm:text-base text-purple-300 sm:text-white sm:bg-gradient-to-tr sm:from-purple-700 sm:to-purple-400 sm:border sm:py-1 sm:px-2 sm:rounded-lg">
+                        3. Breakpoint Strategy
+                    </span>
+                    <br><br>
+                    Developing a consistent breakpoint strategy has been crucial. I typically use: mobile (320px+), tablet (768px+), desktop (1024px+), 
+                    and large desktop (1280px+). This systematic approach ensures my applications look great on everything from smartphones to ultra-wide monitors.
+                </p>
+    
+                <p class="text-white mb-4 pt-5 text-sm sm:text-base">
+                    <span class="font-bold text-sm sm:text-base text-purple-300 sm:text-white sm:bg-gradient-to-tr sm:from-purple-700 sm:to-purple-400 sm:border sm:py-1 sm:px-2 sm:rounded-lg">
+                        4. Performance Optimization
+                    </span>
+                    <br><br>
+                    Responsive design isn't just about layout—it's also about performance. I've learned to optimize images for different screen sizes, 
+                    implement lazy loading, and use CSS techniques that minimize repaints and reflows. These optimizations ensure smooth experiences 
+                    across all devices.
+                </p>
+    
+                <p class="text-white mb-4 pt-5 text-sm sm:text-base">
+                    <span class="font-bold text-sm sm:text-base text-purple-300 sm:text-white sm:bg-gradient-to-tr sm:from-purple-700 sm:to-purple-400 sm:border sm:py-1 sm:px-2 sm:rounded-lg">
+                        5. Testing Across Devices
+                    </span>
+                    <br><br>
+                    Real-world testing has been invaluable. I use browser developer tools, physical devices, and responsive testing tools to ensure 
+                    my applications work perfectly across different screen sizes and orientations. This hands-on approach has taught me nuances that 
+                    theoretical knowledge alone couldn't provide.
+                </p>
+    
+                <p class="text-white mb-4 pt-5 text-sm sm:text-base">
+                    <span class="font-bold text-sm sm:text-base text-purple-300 sm:text-white sm:bg-gradient-to-tr sm:from-purple-700 sm:to-purple-400 sm:border sm:py-1 sm:px-2 sm:rounded-lg">
+                        Conclusion
+                    </span>
+                    <br><br>
+                    Building responsive web applications is an ongoing journey of learning and adaptation. The key is to stay curious, experiment with 
+                    new techniques, and always prioritize the user experience. As technology evolves, so must our approaches to responsive design. 
+                    The future of web development is undoubtedly mobile-first, and I'm excited to continue exploring new possibilities in this space.
+                </p>
+            </div>
+        </div>
+    </main>
+    
+    
+    
+    
+    <footer id="footer" class="mt-16 font-sfpro">
+        <hr class="h-0.5 border-t-0 bg-bgColour opacity-80">
+        <div class="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 lg:px-8 flex flex-col items-center">
+          <div class="flex justify-center text-black">
+            <span class="text-xl font-sfpro bg-gradient-to-t from-purple-300 to-purple-400 bg-clip-text text-transparent font-semibold">
+              Himanshu Singh
+              
+            </span>
+          </div>
+          <p class="mt-2 text-center text-sm text-white">
+            <a href="mailto:himanshumaps@gmail.com" class="px-2 py-1 hover:text-purple-300 hover:scale-110 transition duration-300  items-center block">
+              <i class="fa-solid fa-envelope px-1"></i>himanshumaps@gmail.com
+            </a>
+            <a href="tel:250-241-9385" class="px-2 py-1 hover:text-purple-300 hover:scale-110 transition duration-300  items-center block mt-2 sm:mt-0">
+              <i class="fa-solid fa-phone px-1"></i>250-241-9385
+            </a>
+            <a href="https://www.linkedin.com/in/meuhimanshu/" class="px-2 py-1 mb-4 hover:text-purple-300 hover:scale-110 transition duration-300  items-center block mt-2 sm:mt-0">
+              <i class="fa-brands fa-linkedin px-1"></i>LinkedIn
+            </a>
+            <br class="sm:hidden"><br>
+    
+            
+            Copyright &copy; 2024. All rights reserved.
+          </p>
+        </div>
+      </footer>
+</body>
+<script src="/script.js"></script>
+</html>
