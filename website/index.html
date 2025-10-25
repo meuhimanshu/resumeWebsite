@@ -65,10 +65,12 @@
 
     </nav>
     <!--MAIN SECTION-->
-    <main  id="main">
+    <main id="main">
         <!--HERO SECTION-->
-        <div id="hero" class="min-h-screen bg-gradient-to-b from-bgColour via-black to-transparent font-sfpro ">
-            <div class="text-3xl px-8 mx-auto pt-8 lg:text-8xl md:pt-32 lg:pt-40 felx flex-col sm:items-center sm:text-center">
+        <div id="hero" class="min-h-screen bg-gradient-to-b from-bgColour via-black to-transparent font-sfpro relative overflow-hidden">
+            <!-- Particle Canvas -->
+            <canvas id="particle-canvas" class="absolute inset-0 -z-10"></canvas>
+            <div class="text-3xl px-8 mx-auto pt-8 lg:text-8xl md:pt-32 lg:pt-40 felx flex-col sm:items-center sm:text-center relative z-10">
                 <span class="text-white font-sfpro font-semibold">I am </span>
                 <span id ="dynamic-text" class=" bg-gradient-to-br from-purple-400 to-purple-800 bg-clip-text text-transparent  font-sfpro font-semibold typing-effect">Himanshu</span>
                 <span class="sm:pt-4 pt-2 text-xl bg-gradient-to-t from-purple-300 to-purple-400 bg-clip-text text-transparent  font-sfpro md:text-sm lg:text-3xl hover:text-white transition duration-900 hover:delay-600 duration-300 block">Architecting the future,<br class="sm:hidden"> one byte at a time</span>
@@ -93,7 +95,7 @@
                 </div>
             </div>
             
-            <div   id="apps" class="flex flex-col gap-10">
+            <div   id="apps" class="flex flex-col gap-10 relative z-20">
                 <div  id="toolkit" class=" flex justify-center gap-2 mt-20 sm:mt-32 font-sfpro font-bold" >
                     <img src="/assets/asset2.png" alt="" class="translate-y-2">
                     <span class="bg-white text-lg hover:bg-gradient-to-t from-purple-300 to-purple-400 bg-clip-text text-transparent transition duration-700 delay-1000 ">MY TECH TOOLKIT</span>
@@ -216,7 +218,7 @@
                 </div>
             </div>
             <!--PAGE2 SECTION-->
-            <div   id="about-me" class= "mt-6 px-10 py-12 mx-auto xl  md:max-w-5xl xl:max-w-7xl lg:px-1 lg:mt-32 text-purple-950">
+            <div   id="about-me" class= "mt-6 px-10 py-12 mx-auto xl  md:max-w-5xl xl:max-w-7xl lg:px-1 lg:mt-32 text-purple-950 relative z-20">
                 <h2 class=" mb-14 text-5xl md:text-6xl font-bold bg-gradient-to-tr from-purple-300 to-purple-400 bg-clip-text text-transparent  font-sfpro hover:text-white transition duration-900 hover:delay-600 duration-300 ">About me</h2>
                 <div class="rounded-xl border flex flex-col px-8 py-12 bg-gradient-to-t from-white to bg-purple-200 lg:flex-row ">
                     <div id="left" class="flex flex-col gap-6 lg:w-1/2">
@@ -249,7 +251,7 @@
                 </div>
             </div>
 
-            <div   id="projects" class= "mt-6 px-10 py-12 mx-auto xl  md:max-w-5xl xl:max-w-7xl lg:px-1 lg:mt-32 text-purple-950">
+            <div   id="projects" class= "mt-6 px-10 py-12 mx-auto xl  md:max-w-5xl xl:max-w-7xl lg:px-1 lg:mt-32 text-purple-950 relative z-20">
                 <h2 class="pb-2 mb-14 text-5xl md:text-6xl font-bold bg-gradient-to-tr from-purple-300 to-purple-400 bg-clip-text text-transparent  font-sfpro hover:text-white transition duration-900 hover:delay-600 duration-300 ">Projects</h2>
                 <div id="pro-grid" class="flex flex-col gap-6 lg:grid xl:grid-rows-[250px] 2xl:grid-rows-[110px] lg:grid-rows-[300px] lg:grid-cols-3" style="grid-auto-rows:110px;">
                     
@@ -301,7 +303,7 @@
                 </div>
             </div>
 
-            <div   id="skills" class= "relative mt-6 px-10 py-12 mx-auto xl  md:max-w-5xl xl:max-w-7xl lg:px-1 lg:mt-32 text-purple-200">
+            <div   id="skills" class= "relative mt-6 px-10 py-12 mx-auto xl  md:max-w-5xl xl:max-w-7xl lg:px-1 lg:mt-32 text-purple-200 z-20">
                 <h2 class=" mb-14 text-5xl md:text-6xl font-bold bg-gradient-to-tr from-purple-300 to-purple-400 bg-clip-text text-transparent  font-sfpro hover:text-white transition duration-900 hover:delay-600 duration-300 ">Skills</h2>
                 <div id="demo-skills" class=" rounded-xl  flex flex-col px-8 py-12 bg-gradient-to-t from-black to-bgColour border">
                     <div class="flex flex-col gap-2 lg:gap-3 items-center">
@@ -373,7 +375,7 @@
         
     </main>
     
-    <footer id="footer" class="mt-16 font-sfpro">
+    <footer id="footer" class="mt-16 font-sfpro relative z-20">
         <hr class="h-0.5 border-t-0 bg-bgColour opacity-80">
         <div class="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 lg:px-8 flex flex-col items-center">
           <div class="flex justify-center text-black">
@@ -405,4 +407,136 @@
       
 </body>
 <script src="/script.js"></script>
+<script>
+    // Particle System for Hero Section
+    class ParticleSystem {
+        constructor() {
+            this.canvas = document.getElementById('particle-canvas');
+            this.ctx = this.canvas.getContext('2d');
+            this.particles = [];
+            this.particleCount = 150;
+            this.colors = [
+                '#a855f7', // purple-500
+                '#9333ea', // purple-600
+                '#7c3aed', // purple-700
+                '#6d28d9', // purple-800
+                '#8b5cf6', // purple-400
+                '#c084fc', // purple-300
+            ];
+            
+            this.init();
+            this.animate();
+            this.handleResize();
+        }
+        
+        init() {
+            this.resizeCanvas();
+            this.createParticles();
+            window.addEventListener('resize', () => this.handleResize());
+        }
+        
+        resizeCanvas() {
+            const hero = document.getElementById('hero');
+            this.canvas.width = hero.offsetWidth;
+            this.canvas.height = hero.offsetHeight;
+        }
+        
+        handleResize() {
+            this.resizeCanvas();
+            this.particles = [];
+            this.createParticles();
+        }
+        
+        createParticles() {
+            for (let i = 0; i < this.particleCount; i++) {
+                this.particles.push({
+                    x: Math.random() * this.canvas.width,
+                    y: Math.random() * this.canvas.height,
+                    vx: (Math.random() - 0.5) * 0.5,
+                    vy: (Math.random() - 0.5) * 0.5,
+                    size: Math.random() * 3 + 1,
+                    color: this.colors[Math.floor(Math.random() * this.colors.length)],
+                    opacity: Math.random() * 0.8 + 0.2,
+                    life: Math.random() * 100 + 50
+                });
+            }
+        }
+        
+        updateParticles() {
+            this.particles.forEach((particle, index) => {
+                particle.x += particle.vx;
+                particle.y += particle.vy;
+                particle.life--;
+                
+                // Reset particle when it goes off screen or dies
+                if (particle.x < 0 || particle.x > this.canvas.width || 
+                    particle.y < 0 || particle.y > this.canvas.height || 
+                    particle.life <= 0) {
+                    particle.x = Math.random() * this.canvas.width;
+                    particle.y = Math.random() * this.canvas.height;
+                    particle.life = Math.random() * 100 + 50;
+                    particle.vx = (Math.random() - 0.5) * 0.5;
+                    particle.vy = (Math.random() - 0.5) * 0.5;
+                }
+                
+                // Add subtle floating motion
+                particle.y += Math.sin(Date.now() * 0.001 + index) * 0.1;
+                particle.x += Math.cos(Date.now() * 0.001 + index) * 0.1;
+            });
+        }
+        
+        
+        drawParticles() {
+            this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+            
+            this.particles.forEach(particle => {
+                this.ctx.save();
+                this.ctx.globalAlpha = particle.opacity;
+                this.ctx.fillStyle = particle.color;
+                this.ctx.beginPath();
+                this.ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
+                this.ctx.fill();
+                this.ctx.restore();
+            });
+            
+            // Add connecting lines between nearby particles
+            this.drawConnections();
+        }
+        
+        
+        drawConnections() {
+            for (let i = 0; i < this.particles.length; i++) {
+                for (let j = i + 1; j < this.particles.length; j++) {
+                    const dx = this.particles[i].x - this.particles[j].x;
+                    const dy = this.particles[i].y - this.particles[j].y;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
+                    
+                    if (distance < 100) {
+                        this.ctx.save();
+                        this.ctx.globalAlpha = (100 - distance) / 100 * 0.2;
+                        this.ctx.strokeStyle = '#a855f7';
+                        this.ctx.lineWidth = 0.5;
+                        this.ctx.beginPath();
+                        this.ctx.moveTo(this.particles[i].x, this.particles[i].y);
+                        this.ctx.lineTo(this.particles[j].x, this.particles[j].y);
+                        this.ctx.stroke();
+                        this.ctx.restore();
+                    }
+                }
+            }
+        }
+        
+        animate() {
+            this.updateParticles();
+            this.drawParticles();
+            requestAnimationFrame(() => this.animate());
+        }
+    }
+    
+    // Initialize particle system when page loads
+    document.addEventListener('DOMContentLoaded', () => {
+        new ParticleSystem();
+    });
+
+</script>
 </html>

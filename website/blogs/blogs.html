@@ -13,7 +13,7 @@
 <body class="bg-bgColour ">
     <!--NAVBAR-->
     <nav class="p-3 flex bg-bgColour justify-between items-center ">
-        <a href="/https://huesofhimanshu.com/" id="navBar" class="flex gap-2 items-center">
+        <a href="https://huesofhimanshu.com" id="navBar" class="flex gap-2 items-center">
             <span class=" p-4 text-lg font-sfpro bg-gradient-to-t from-purple-300 to-purple-400 bg-clip-text text-transparent font-semibold">
                 Himanshu Singh
             </span>
@@ -65,11 +65,13 @@
 
     </nav>
     <!--MAIN SECTION-->
-    <main id="main">
-        <div id="blog-conatiner" class="flex flex-col items-center justify-center">
+    <main id="main" class="relative overflow-hidden">
+        <!-- Particle Canvas -->
+        <canvas id="particle-canvas" class="absolute inset-0 -z-10"></canvas>
+        <div id="blog-conatiner" class="flex flex-col items-center justify-center relative z-10">
             <h2 class=" mt-7 pb-2 mb-14 text-5xl md:text-6xl font-bold bg-gradient-to-tr from-purple-300 to-purple-400 bg-clip-text text-transparent  font-sfpro hover:text-white transition duration-900 hover:delay-600 duration-300 ">My Blogs</h2>
-            <div id="allblogs" class="flex flex-col lg:flex-row lg:flex-wrap items-center lg:justify-center gap-6">
-                <article class="my-8 mx-6 w-full max-w-xs sm:max-w-md sm:h-auto bg-gradient-to-t from-white to-purple-200 rounded-lg font-sfpro transition hover:shadow-xl flex flex-col">
+            <div id="allblogs" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 justify-items-center">
+                <article class="w-full max-w-sm h-auto bg-gradient-to-t from-white to-purple-200 rounded-lg font-sfpro transition hover:shadow-xl flex flex-col">
                     <div class="p-1 sm:p-2">
                     <time datetime="2022-10-10" class=" px-5 flex items-center justify-between gap-2 sm:gap-4 text-[10px] sm:text-xs font-bold uppercase text-bgColour">
                     <span>2024</span>
@@ -98,6 +100,68 @@
                     </div>
                     </div>
                 </article>
+
+                <!-- Second Blog Article -->
+                <article class="w-full max-w-sm h-auto bg-gradient-to-t from-white to-purple-200 rounded-lg font-sfpro transition hover:shadow-xl flex flex-col">
+                    <div class="p-1 sm:p-2">
+                    <time datetime="2024-12-01" class=" px-5 flex items-center justify-between gap-2 sm:gap-4 text-[10px] sm:text-xs font-bold uppercase text-bgColour">
+                    <span>2024</span>
+                    <span class="w-px flex-1 bg-bgColour"></span>
+                    <span>Dec 01</span>
+                    </time>
+                    </div>
+            
+                    <div class="flex-1 flex justify-center items-center">
+                    <img alt="" src="/assets/aws.jpeg" class="max-h-40 sm:max-h-56 w-auto object-cover rounded-t-lg" />
+                    </div>
+            
+                    <div class="flex flex-1 flex-col justify-between p-2 sm:p-4 border-s border-gray-900/10 sm:border-l-transparent">
+                    <a href="blog-2.html">
+                    <h3 class="font-bold text-sm sm:text-lg uppercase text-bgColour">Building Responsive Web Applications</h3>
+                    </a>
+            
+                    <p class="mt-1 sm:mt-2 line-clamp-3 text-xs sm:text-sm/relaxed text-gray-700">
+                    Learn the fundamentals of creating responsive web applications that work seamlessly across all devices and screen sizes.
+                    </p>
+            
+                    <div class="flex justify-end mt-3 sm:mt-4">
+                    <a href="blog-2.html" class="block bg-gradient-to-tr from-purple-300 to-purple-400 px-3 sm:px-5 py-2 sm:py-3 text-center text-[10px] sm:text-xs font-bold uppercase text-gray-900 hover:scale-105 transition-all duration-150 rounded-lg">
+                    Read Blog
+                    </a>
+                    </div>
+                    </div>
+                </article>
+
+                <!-- Third Blog Article -->
+                <article class="w-full max-w-sm h-auto bg-gradient-to-t from-white to-purple-200 rounded-lg font-sfpro transition hover:shadow-xl flex flex-col">
+                    <div class="p-1 sm:p-2">
+                    <time datetime="2024-12-15" class=" px-5 flex items-center justify-between gap-2 sm:gap-4 text-[10px] sm:text-xs font-bold uppercase text-bgColour">
+                    <span>2024</span>
+                    <span class="w-px flex-1 bg-bgColour"></span>
+                    <span>Dec 15</span>
+                    </time>
+                    </div>
+            
+                    <div class="flex-1 flex justify-center items-center">
+                    <img alt="" src="/assets/aws.jpeg" class="max-h-40 sm:max-h-56 w-auto object-cover rounded-t-lg" />
+                    </div>
+            
+                    <div class="flex flex-1 flex-col justify-between p-2 sm:p-4 border-s border-gray-900/10 sm:border-l-transparent">
+                    <a href="blog-3.html">
+                    <h3 class="font-bold text-sm sm:text-lg uppercase text-bgColour">Modern JavaScript Development</h3>
+                    </a>
+            
+                    <p class="mt-1 sm:mt-2 line-clamp-3 text-xs sm:text-sm/relaxed text-gray-700">
+                    Explore the latest JavaScript features and best practices for building modern, efficient web applications.
+                    </p>
+            
+                    <div class="flex justify-end mt-3 sm:mt-4">
+                    <a href="blog-3.html" class="block bg-gradient-to-tr from-purple-300 to-purple-400 px-3 sm:px-5 py-2 sm:py-3 text-center text-[10px] sm:text-xs font-bold uppercase text-gray-900 hover:scale-105 transition-all duration-150 rounded-lg">
+                    Read Blog
+                    </a>
+                    </div>
+                    </div>
+                </article>
                     
 
             </div>
@@ -109,7 +173,7 @@
     </main>
     
     
-    <footer id="footer" class="mt-16 font-sfpro">
+    <footer id="footer" class="mt-16 font-sfpro relative z-10">
         <hr class="h-0.5 border-t-0 bg-bgColour opacity-80">
         <div class="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 lg:px-8 flex flex-col items-center">
           <div class="flex justify-center text-black">
@@ -137,4 +201,133 @@
       </footer>
 </body>
 <script src="/script.js"></script>
+<script>
+    // Particle System for Blogs Page
+    class ParticleSystem {
+        constructor() {
+            this.canvas = document.getElementById('particle-canvas');
+            this.ctx = this.canvas.getContext('2d');
+            this.particles = [];
+            this.particleCount = 150;
+            this.colors = [
+                '#a855f7', // purple-500
+                '#9333ea', // purple-600
+                '#7c3aed', // purple-700
+                '#6d28d9', // purple-800
+                '#8b5cf6', // purple-400
+                '#c084fc', // purple-300
+            ];
+            
+            this.init();
+            this.animate();
+            this.handleResize();
+        }
+        
+        init() {
+            this.resizeCanvas();
+            this.createParticles();
+            window.addEventListener('resize', () => this.handleResize());
+        }
+        
+        resizeCanvas() {
+            const main = document.getElementById('main');
+            this.canvas.width = main.offsetWidth;
+            this.canvas.height = main.offsetHeight;
+        }
+        
+        handleResize() {
+            this.resizeCanvas();
+            this.particles = [];
+            this.createParticles();
+        }
+        
+        createParticles() {
+            for (let i = 0; i < this.particleCount; i++) {
+                this.particles.push({
+                    x: Math.random() * this.canvas.width,
+                    y: Math.random() * this.canvas.height,
+                    vx: (Math.random() - 0.5) * 0.5,
+                    vy: (Math.random() - 0.5) * 0.5,
+                    size: Math.random() * 3 + 1,
+                    color: this.colors[Math.floor(Math.random() * this.colors.length)],
+                    opacity: Math.random() * 0.8 + 0.2,
+                    life: Math.random() * 100 + 50
+                });
+            }
+        }
+        
+        updateParticles() {
+            this.particles.forEach((particle, index) => {
+                particle.x += particle.vx;
+                particle.y += particle.vy;
+                particle.life--;
+                
+                // Reset particle when it goes off screen or dies
+                if (particle.x < 0 || particle.x > this.canvas.width || 
+                    particle.y < 0 || particle.y > this.canvas.height || 
+                    particle.life <= 0) {
+                    particle.x = Math.random() * this.canvas.width;
+                    particle.y = Math.random() * this.canvas.height;
+                    particle.life = Math.random() * 100 + 50;
+                    particle.vx = (Math.random() - 0.5) * 0.5;
+                    particle.vy = (Math.random() - 0.5) * 0.5;
+                }
+                
+                // Add subtle floating motion
+                particle.y += Math.sin(Date.now() * 0.001 + index) * 0.1;
+                particle.x += Math.cos(Date.now() * 0.001 + index) * 0.1;
+            });
+        }
+        
+        drawParticles() {
+            this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+            
+            this.particles.forEach(particle => {
+                this.ctx.save();
+                this.ctx.globalAlpha = particle.opacity;
+                this.ctx.fillStyle = particle.color;
+                this.ctx.beginPath();
+                this.ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
+                this.ctx.fill();
+                this.ctx.restore();
+            });
+            
+            // Add connecting lines between nearby particles
+            this.drawConnections();
+        }
+        
+        drawConnections() {
+            for (let i = 0; i < this.particles.length; i++) {
+                for (let j = i + 1; j < this.particles.length; j++) {
+                    const dx = this.particles[i].x - this.particles[j].x;
+                    const dy = this.particles[i].y - this.particles[j].y;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
+                    
+                    if (distance < 100) {
+                        this.ctx.save();
+                        this.ctx.globalAlpha = (100 - distance) / 100 * 0.2;
+                        this.ctx.strokeStyle = '#a855f7';
+                        this.ctx.lineWidth = 0.5;
+                        this.ctx.beginPath();
+                        this.ctx.moveTo(this.particles[i].x, this.particles[i].y);
+                        this.ctx.lineTo(this.particles[j].x, this.particles[j].y);
+                        this.ctx.stroke();
+                        this.ctx.restore();
+                    }
+                }
+            }
+        }
+        
+        animate() {
+            this.updateParticles();
+            this.drawParticles();
+            requestAnimationFrame(() => this.animate());
+        }
+    }
+    
+    // Initialize particle system when page loads
+    document.addEventListener('DOMContentLoaded', () => {
+        new ParticleSystem();
+    });
+</script>
 </html>
