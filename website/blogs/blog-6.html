@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="/output.css">
+    <link rel="stylesheet" href="/styles.css">
+    <title>Portflio Himanshu</title>
+</head> 
+<body class="bg-bgColour ">
+    <!--NAVBAR-->
+    <nav class="p-3 flex bg-bgColour justify-between items-center ">
+        <a href="https://huesofhimanshu.com" id="navBar" class="flex gap-2 items-center">
+            <span class=" p-4 text-lg font-sfpro bg-gradient-to-t from-purple-300 to-purple-400 bg-clip-text text-transparent font-semibold">
+                Himanshu Singh
+            </span>
+        </a>
+        <div id="nav-menu" class="hidden lg:flex gap-16 ">
+            <a href="https://huesofhimanshu.com/#about-me" class=" hover:motion-preset-oscillate-sm bg-white font-sfpro hover:bg-gradient-to-t from-purple-300 to-purple-400 bg-clip-text text-transparent transition duration-900 hover:delay-600 hover:scale-110 duration-300 ">About me</a>
+            <a href="https://huesofhimanshu.com/#projects" class="bg-white hover:motion-preset-oscillate-sm font-sfpro hover:bg-gradient-to-t from-purple-300 to-purple-400 bg-clip-text text-transparent transition duration-900 hover:delay-600 hover:scale-110 duration-300">Projects</a>
+            <a href="https://huesofhimanshu.com/#skills" class="bg-white hover:motion-preset-oscillate-sm font-sfpro hover:bg-gradient-to-t from-purple-300 to-purple-400 bg-clip-text text-transparent transition duration-900 hover:delay-600 hover:scale-110 duration-300">Skills</a>
+            <a href="blogs.html" class="bg-white hover:motion-preset-oscillate-sm font-sfpro hover:bg-gradient-to-t from-purple-300 to-purple-400 bg-clip-text text-transparent transition duration-900 hover:delay-600 hover:scale-110 duration-300">Blogs</a>
+
+        </div>
+        <a href="himanshu_resume.pdf" download="himanshu-resume">
+            <button class="hidden lg:flex gap-2 mr-1 p-4 bg-white font-sfpro hover:bg-gradient-to-t from-purple-300 to-purple-400 bg-clip-text text-transparent  items-center border-2 border-white px-6 py-2.5 rounded-lg hover:border-primaryColour transition duration-900 hover:delay-600 hover:scale-95 duration-300">
+                <i class="fa-regular fa-file"></i>
+                <span>Download Resume</span>
+            </button>
+        </a>
+
+        <button class="p-2 lg:hidden" onclick="handleMenu()">
+            <i class="fa-solid fa-bars bg-gradient-to-t from-purple-300 to-purple-400 bg-clip-text text-transparent"></i>
+        </button>
+
+        <div id="nav-dialog" class="hidden fixed z-10 lg:hidden bg-bgColour inset-0">
+            <div id="nav-bar" class="p-3 flex bg-bgColour justify-between items-center">
+                <span class=" p-2 text-lg font-sfpro bg-gradient-to-t from-purple-300 to-purple-400 bg-clip-text text-transparent font-semibold">
+                    Himanshu Singh
+                </span>
+                <button class="p-2 lg:hidden" onclick="handleMenu()">
+                    <i class="fa-solid fa-xmark bg-gradient-to-t from-purple-300 to-purple-400 bg-clip-text text-transparent"></i>
+                </button>
+            </div>
+            <div class="">
+                <a href="https://huesofhimanshu.com/#about-me" class=" p-3 m-3 block bg-white font-sfpro hover:bg-gradient-to-t from-purple-300 to-purple-400 bg-clip-text text-transparent transition duration-900 hover:delay-600 hover:scale-105 duration-300">About me</a>
+                <a href="https://huesofhimanshu.com/#projects" class=" hover:motion-preset-oscillate-sm p-3 m-3 block bg-white font-sfpro hover:bg-gradient-to-t from-purple-300 to-purple-400 bg-clip-text text-transparent transition duration-900 hover:delay-600 hover:scale-105 duration-300">Projects</a>
+                <a href="https://huesofhimanshu.com/#skills" class=" hover:motion-preset-oscillate-sm p-3 m-3 block bg-white font-sfpro hover:bg-gradient-to-t from-purple-300 to-purple-400 bg-clip-text text-transparent transition duration-900 hover:delay-600 hover:scale-105 duration-300">Skills</a>
+                <a href="/blogs/blogs.html" class=" hover:motion-preset-oscillate-sm p-3 m-3 block bg-white font-sfpro hover:bg-gradient-to-t from-purple-300 to-purple-400 bg-clip-text text-transparent transition duration-900 hover:delay-600 hover:scale-105 duration-300">Blogs</a>
+                <div class="h-[1px] bg-primaryColour opacity-60"></div>
+                <a href="himanshu_resume.pdf" download="himanshu-resume">
+                    <button class="flex m-4 gap-2 p-3  font-sfpro bg-white hover:bg-gradient-to-t from-purple-300 to-purple-400 bg-clip-text text-transparent  items-center border-2 border-white px-6 py-2.5 rounded-lg hover:border-primaryColour transition duration-900 hover:delay-600">
+                        <i class="fa-regular fa-file"></i>
+                        <span>Download Resume</span>
+                    </button>
+                </a>
+            </div>
+
+
+        </div>
+
+    </nav>
+    <!--MAIN SECTION-->
+    <main id="main" class="relative overflow-hidden">
+        <!-- Particle Canvas -->
+        <canvas id="particle-canvas" class="absolute inset-0"></canvas>
+        <div class="flex flex-col items-center justify-center px-4 font-sfpro relative">
+            <div id="theblog" class="text-left max-w-full sm:max-w-2xl">
+                <h2 class="mt-8 pb-2 text-xl sm:text-2xl font-bold bg-gradient-to-tr from-purple-300 to-purple-400 bg-clip-text text-transparent font-sfpro hover:text-white transition duration-900 hover:delay-600 duration-300">
+                    Building the Kal View Cafe Food Ordering App — My Demo Prototype for COSC Course Project
+                </h2>
+                <p class="text-white text-left mb-3 text-sm sm:text-base">Jan 2025 — by Himanshu Singh</p>
+    
+                <div class="carousel mb-4 pt-5">
+                    <img src="/assets/kalview.png" alt="Kal View Cafe Food Ordering App" class="w-full h-auto rounded-md">
+                </div>
+    
+                <p class="text-white mb-4 text-sm sm:text-base">
+                    This semester, I had the chance to build something simple yet meaningful: a demo food-ordering web application for Kal View Cafe, a popular spot on my college campus. Though the goal wasn't to create a production-ready app, this project helped me combine backend development, UI design, authentication, and real-world workflows into a single functional prototype. Here's the story behind how I built it — and what I learned along the way.
+                </p>
+    
+                <p class="text-white mb-4 pt-5 text-sm sm:text-base">
+                    <span class="font-bold text-sm sm:text-base text-purple-300 sm:text-white sm:bg-gradient-to-tr sm:from-purple-700 sm:to-purple-400 sm:border sm:py-1 sm:px-2 sm:rounded-lg">
+                        1. The Idea: A Simple Ordering System That Actually Works
+                    </span>
+                    <br><br>
+                    The project needed to achieve two core objectives: Allow users (students/customers) to place orders easily, Let the cafe vendor receive, manage, and complete those orders. While the concept was straightforward, the challenge was to make the entire workflow functional, secure, and clean — all within the scope of a course project.
+                </p>
+    
+                <p class="text-white mb-4 pt-5 text-sm sm:text-base">
+                    <span class="font-bold text-sm sm:text-base text-purple-300 sm:text-white sm:bg-gradient-to-tr sm:from-purple-700 sm:to-purple-400 sm:border sm:py-1 sm:px-2 sm:rounded-lg">
+                        2. The Tech Stack: LAMP + Tailwind + JavaScript
+                    </span>
+                    <br><br>
+                    I built the project using a combination of technologies that emphasized backend logic and simplicity.
+                    <br><br>
+                    <strong>Backend (LAMP Stack)</strong><br>
+                    Linux, Apache, MySQL, PHP. This stack formed the backbone of the application and handled all data operations efficiently.
+                    <br><br>
+                    <strong>Frontend: Tailwind CSS + JavaScript</strong><br>
+                    The interface is lightweight, responsive for large screens, and easy to navigate. Tailwind allowed me to prototype quickly and maintain consistent styling.
+                    <br><br>
+                    <strong>Security: Salt + Pepper Encryption</strong><br>
+                    All user credentials are stored securely using: Hashing, Salt & pepper encryption. This ensured safe authentication even in a simple prototype environment.
+                    <br><br>
+                    <strong>User Authentication System</strong><br>
+                    I implemented: Session handling, Cookie-based validation, Role-based access (User vs Admin through the same login page).
+                </p>
+    
+                <p class="text-white mb-4 pt-5 text-sm sm:text-base">
+                    <span class="font-bold text-sm sm:text-base text-purple-300 sm:text-white sm:bg-gradient-to-tr sm:from-purple-700 sm:to-purple-400 sm:border sm:py-1 sm:px-2 sm:rounded-lg">
+                        3. Key Features That Bring the App Together
+                    </span>
+                    <br><br>
+                    <strong>User Panel</strong><br>
+                    Browse menu items, Place orders, View order status.
+                    <br><br>
+                    <strong>Admin Panel</strong><br>
+                    Accessed through the same login interface — but with admin credentials. Admin can: View all incoming orders, Mark orders as processing, Mark orders as completed, Manage workflow in real time. This dual-panel design shows how a small business can digitize everyday processes quickly.
+                </p>
+    
+                <p class="text-white mb-4 pt-5 text-sm sm:text-base">
+                    <span class="font-bold text-sm sm:text-base text-purple-300 sm:text-white sm:bg-gradient-to-tr sm:from-purple-700 sm:to-purple-400 sm:border sm:py-1 sm:px-2 sm:rounded-lg">
+                        4. Challenges & Trade-Offs
+                    </span>
+                    <br><br>
+                    Not every feature reached perfection — and that's part of learning.
+                    <br><br>
+                    <strong>Mobile Responsiveness</strong><br>
+                    Due to time constraints, I optimized primarily for desktop screens. The mobile version isn't fully polished yet.
+                    <br><br>
+                    <strong>Backend vs Frontend Focus</strong><br>
+                    Since the course emphasized backend and server-side development, most of my time went into building: Authentication, Database logic, Order flow, Security patterns. Still, I ensured the UI looked clean and functional for the demo.
+                </p>
+    
+                <p class="text-white mb-4 pt-5 text-sm sm:text-base">
+                    <span class="font-bold text-sm sm:text-base text-purple-300 sm:text-white sm:bg-gradient-to-tr sm:from-purple-700 sm:to-purple-400 sm:border sm:py-1 sm:px-2 sm:rounded-lg">
+                        5. What I Learned
+                    </span>
+                    <br><br>
+                    This project taught me how to balance: Real user workflows, Backend efficiency, Authentication best practices, Security fundamentals, Production-like thinking within limited constraints. Building an app that simulates a real business scenario pushed me to think about how small decisions in UX and architecture affect the entire system.
+                </p>
+    
+                <p class="text-white mb-4 pt-5 text-sm sm:text-base">
+                    <span class="font-bold text-sm sm:text-base text-purple-300 sm:text-white sm:bg-gradient-to-tr sm:from-purple-700 sm:to-purple-400 sm:border sm:py-1 sm:px-2 sm:rounded-lg">
+                        6. Demo + Final Prototype
+                    </span>
+                    <br><br>
+                    Demo Video: Attached in the post. Prototype Link: <a href="https://lnkd.in/gQa9xSWv" target="_blank" class="text-purple-400 font-bold">https://lnkd.in/gQa9xSWv</a> It's hosted on InfinityFree, so performance may vary — but it works well enough to demonstrate functionality.
+                </p>
+    
+                <p class="text-white mb-4 pt-5 text-sm sm:text-base">
+                    <span class="font-bold text-sm sm:text-base text-purple-300 sm:text-white sm:bg-gradient-to-tr sm:from-purple-700 sm:to-purple-400 sm:border sm:py-1 sm:px-2 sm:rounded-lg">
+                        Conclusion
+                    </span>
+                    <br><br>
+                    This wasn't just a class assignment — it was a complete mini-project where I applied everything I've learned so far in backend development, authentication, and UI design. It gave me the confidence to build more real-world systems and think like an engineer who solves problems end-to-end. If you have suggestions or feedback, I'd love to hear them.
+                </p>
+            </div>
+        </div>
+    </main>
+    
+    
+    
+    
+    <footer id="footer" class="mt-16 font-sfpro relative z-10">
+        <hr class="h-0.5 border-t-0 bg-bgColour opacity-80">
+        <div class="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 lg:px-8 flex flex-col items-center">
+          <div class="flex justify-center text-black">
+            <span class="text-xl font-sfpro bg-gradient-to-t from-purple-300 to-purple-400 bg-clip-text text-transparent font-semibold">
+              Himanshu Singh
+              
+            </span>
+          </div>
+          <p class="mt-2 text-center text-sm text-white">
+            <a href="mailto:himanshumaps@gmail.com" class="px-2 py-1 hover:text-purple-300 hover:scale-110 transition duration-300  items-center block">
+              <i class="fa-solid fa-envelope px-1"></i>himanshumaps@gmail.com
+            </a>
+            <a href="tel:250-241-9385" class="px-2 py-1 hover:text-purple-300 hover:scale-110 transition duration-300  items-center block mt-2 sm:mt-0">
+              <i class="fa-solid fa-phone px-1"></i>250-241-9385
+            </a>
+            <a href="https://www.linkedin.com/in/meuhimanshu/" class="px-2 py-1 mb-4 hover:text-purple-300 hover:scale-110 transition duration-300  items-center block mt-2 sm:mt-0">
+              <i class="fa-brands fa-linkedin px-1"></i>LinkedIn
+            </a>
+            <br class="sm:hidden"><br>
+    
+            
+            Copyright &copy; 2024. All rights reserved.
+          </p>
+        </div>
+      </footer>
+</body>
+<script src="/script.js"></script>
+<script>
+    // Particle System for Blog-6 Page
+    class ParticleSystem {
+        constructor() {
+            this.canvas = document.getElementById('particle-canvas');
+            this.ctx = this.canvas.getContext('2d');
+            this.particles = [];
+            this.particleCount = 50;
+            this.colors = [
+                '#a855f7', // purple-500
+                '#9333ea', // purple-600
+                '#7c3aed', // purple-700
+                '#6d28d9', // purple-800
+                '#8b5cf6', // purple-400
+                '#c084fc', // purple-300
+            ];
+            
+            this.init();
+            this.animate();
+            this.handleResize();
+        }
+        
+        init() {
+            this.resizeCanvas();
+            this.createParticles();
+            window.addEventListener('resize', () => this.handleResize());
+        }
+        
+        resizeCanvas() {
+            const main = document.getElementById('main');
+            this.canvas.width = main.offsetWidth;
+            this.canvas.height = main.offsetHeight;
+        }
+        
+        handleResize() {
+            this.resizeCanvas();
+            this.particles = [];
+            this.createParticles();
+        }
+        
+        createParticles() {
+            for (let i = 0; i < this.particleCount; i++) {
+                this.particles.push({
+                    x: Math.random() * this.canvas.width,
+                    y: Math.random() * this.canvas.height,
+                    vx: (Math.random() - 0.5) * 0.5,
+                    vy: (Math.random() - 0.5) * 0.5,
+                    size: Math.random() * 3 + 1,
+                    color: this.colors[Math.floor(Math.random() * this.colors.length)],
+                    opacity: Math.random() * 0.8 + 0.2,
+                    life: Math.random() * 100 + 50
+                });
+            }
+        }
+        
+        updateParticles() {
+            this.particles.forEach((particle, index) => {
+                particle.x += particle.vx;
+                particle.y += particle.vy;
+                particle.life--;
+                
+                // Reset particle when it goes off screen or dies
+                if (particle.x < 0 || particle.x > this.canvas.width || 
+                    particle.y < 0 || particle.y > this.canvas.height || 
+                    particle.life <= 0) {
+                    particle.x = Math.random() * this.canvas.width;
+                    particle.y = Math.random() * this.canvas.height;
+                    particle.life = Math.random() * 100 + 50;
+                    particle.vx = (Math.random() - 0.5) * 0.5;
+                    particle.vy = (Math.random() - 0.5) * 0.5;
+                }
+                
+                // Add subtle floating motion
+                particle.y += Math.sin(Date.now() * 0.001 + index) * 0.1;
+                particle.x += Math.cos(Date.now() * 0.001 + index) * 0.1;
+            });
+        }
+        
+        drawParticles() {
+            this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+            
+            this.particles.forEach(particle => {
+                this.ctx.save();
+                this.ctx.globalAlpha = particle.opacity;
+                this.ctx.fillStyle = particle.color;
+                this.ctx.beginPath();
+                this.ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
+                this.ctx.fill();
+                this.ctx.restore();
+            });
+            
+            // Add connecting lines between nearby particles
+            this.drawConnections();
+        }
+        
+        drawConnections() {
+            for (let i = 0; i < this.particles.length; i++) {
+                for (let j = i + 1; j < this.particles.length; j++) {
+                    const dx = this.particles[i].x - this.particles[j].x;
+                    const dy = this.particles[i].y - this.particles[j].y;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
+                    
+                    if (distance < 100) {
+                        this.ctx.save();
+                        this.ctx.globalAlpha = (100 - distance) / 100 * 0.2;
+                        this.ctx.strokeStyle = '#a855f7';
+                        this.ctx.lineWidth = 0.5;
+                        this.ctx.beginPath();
+                        this.ctx.moveTo(this.particles[i].x, this.particles[i].y);
+                        this.ctx.lineTo(this.particles[j].x, this.particles[j].y);
+                        this.ctx.stroke();
+                        this.ctx.restore();
+                    }
+                }
+            }
+        }
+        
+        animate() {
+            this.updateParticles();
+            this.drawParticles();
+            requestAnimationFrame(() => this.animate());
+        }
+    }
+    
+    // Initialize particle system when page loads
+    document.addEventListener('DOMContentLoaded', () => {
+        new ParticleSystem();
+    });
+</script>
+</html>
+

@@ -9,6 +9,113 @@
     <link rel="stylesheet" href="/output.css">
     <link rel="stylesheet" href="/styles.css">
     <title>Portflio Himanshu</title>
+    <style>
+        /* Keep "Read Blog" buttons aligned across every card */
+        .blog-card .blog-title {
+            min-height: 4.5rem;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 3;
+            overflow: hidden;
+        }
+
+        .blog-card .blog-body {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .blog-card .blog-summary {
+            min-height: 3.75rem;
+        }
+
+        .blog-card .blog-footer {
+            margin-top: auto;
+            padding-bottom: 0.75rem;
+        }
+
+        .blog-card .blog-header > .flex {
+            padding: 0.75rem;
+        }
+
+        .blog-card .blog-header img {
+            display: block;
+            width: auto;
+            max-width: 90%;
+            height: 12rem;
+            max-height: 14rem;
+            margin: 0 auto;
+            object-fit: contain;
+            border: 2px solid #a57ec6;
+            border-radius: 0.5rem;
+        }
+
+        /* Subtle lift/glow on blog tiles */
+        .blog-card {
+            transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+            border: 1px solid rgba(124, 58, 237, 0.2);
+            box-shadow: 0 10px 30px rgba(26, 21, 30, 0.25);
+        }
+
+        .blog-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(124, 58, 237, 0.25), 0 15px 35px rgba(26, 21, 30, 0.35);
+            border-color: rgba(168, 85, 247, 0.35);
+        }
+
+        @media (max-width: 767px) {
+            /* Compact, list-style cards on mobile */
+            .blog-card .blog-header {
+                display: grid;
+                grid-template-columns: 120px 1fr;
+                grid-template-rows: auto auto;
+                align-items: start;
+                gap: 0.5rem;
+                padding: 0.75rem;
+            }
+
+            .blog-card .blog-header > .p-2 {
+                grid-column: 1 / 2;
+                grid-row: 1;
+                padding: 0;
+            }
+
+            .blog-card .blog-header > .flex {
+                grid-column: 1 / 2;
+                grid-row: 2;
+                height: 95px;
+                padding: 0.25rem 0.5rem;
+            }
+
+            .blog-card .blog-header img {
+                width: 100%;
+                max-width: 100%;
+                height: 100%;
+                max-height: 95px;
+                object-fit: cover;
+                border-radius: 0.5rem;
+            }
+
+            .blog-card .blog-header > .p-4 {
+                grid-column: 2 / 3;
+                grid-row: 1 / span 2;
+                padding: 0;
+            }
+
+            .blog-card .blog-title {
+                min-height: auto;
+                -webkit-line-clamp: 4;
+            }
+
+            .blog-card .blog-body {
+                padding: 0 0.75rem 0.75rem;
+            }
+
+            .blog-card .blog-summary {
+                min-height: auto;
+            }
+        }
+    </style>
 </head> 
 <body class="bg-bgColour ">
     <!--NAVBAR-->
@@ -69,159 +176,256 @@
         <canvas id="particle-canvas" class="absolute"></canvas>
         <div id="blog-conatiner" class="flex flex-col items-center justify-center relative">
             <h2 class=" mt-7 pb-2 mb-14 text-5xl md:text-6xl font-bold bg-gradient-to-tr from-purple-300 to-purple-400 bg-clip-text text-transparent  font-sfpro hover:text-white transition duration-900 hover:delay-600 duration-300 ">My Blogs</h2>
-            <div id="allblogs" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 justify-items-center">
+            <div id="allblogs" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 justify-items-center items-stretch px-4 sm:px-0">
                 <!-- First Blog Article - Latest (Dec 2025) -->
-                <article class="w-full max-w-sm h-auto bg-gradient-to-t from-white to-purple-200 rounded-lg font-sfpro transition hover:shadow-xl flex flex-col">
-                    <div class="p-1 sm:p-2">
-                    <time datetime="2025-12-04" class=" px-5 flex items-center justify-between gap-2 sm:gap-4 text-[10px] sm:text-xs font-bold uppercase text-bgColour">
-                    <span>2025</span>
-                    <span class="w-px flex-1 bg-bgColour"></span>
-                    <span>Dec 04</span>
-                    </time>
+                <article class="blog-card w-full max-w-sm h-full bg-gradient-to-t from-white to-purple-200 rounded-lg font-sfpro transition-all duration-300 flex flex-col shadow-md overflow-hidden">
+                    <div class="blog-header cursor-pointer md:cursor-default flex-shrink-0" onclick="toggleBlog(this)">
+                        <div class="p-2 sm:p-2">
+                        <time datetime="2025-12-04" class="px-4 sm:px-5 flex items-center justify-between gap-2 sm:gap-4 text-xs sm:text-xs font-bold uppercase text-bgColour">
+                        <span>2025</span>
+                        <span class="w-px flex-1 bg-bgColour"></span>
+                        <span>Dec 04</span>
+                        </time>
+                        </div>
+                
+                        <div class="flex justify-center items-center bg-white/50">
+                        <img alt="" src="/assets/developer.png" class="w-full h-48 sm:max-h-56 object-contain sm:object-cover" />
+                        </div>
+                
+                        <div class="p-4 sm:p-4">
+                        <div class="flex items-center justify-between">
+                            <a href="blog-2.html" class="hover:opacity-80 transition-opacity flex-1" onclick="event.stopPropagation()">
+                            <h3 class="blog-title font-bold text-base sm:text-lg uppercase text-bgColour leading-tight pr-2">How I Cleared the AWS Certified Developer – Associate (My Complete Journey)</h3>
+                            </a>
+                            <button class="blog-toggle md:hidden text-bgColour hover:text-purple-600 transition-colors flex-shrink-0 ml-2" aria-label="Toggle blog details">
+                                <i class="fa-solid fa-chevron-down transition-transform duration-300"></i>
+                            </button>
+                        </div>
+                        </div>
                     </div>
             
-                    <div class="flex-1 flex justify-center items-center">
-                    <img alt="" src="/assets/developer.png" class="max-h-40 sm:max-h-56 w-auto object-cover rounded-t-lg" />
-                    </div>
-            
-                    <div class="flex flex-1 flex-col justify-between p-2 sm:p-4 border-s border-gray-900/10 sm:border-l-transparent">
-                    <a href="blog-2.html">
-                    <h3 class="font-bold text-sm sm:text-lg uppercase text-bgColour">How I Cleared the AWS Certified Developer – Associate (My Complete Journey)</h3>
-                    </a>
-            
-                    <p class="mt-1 sm:mt-2 line-clamp-3 text-xs sm:text-sm/relaxed text-gray-700">
-                    After AWS Cloud Practitioner, I pursued Developer Associate certification to master cloud-native development and serverless patterns.
-                    </p>
-            
-                    <div class="flex justify-end mt-3 sm:mt-4">
-                    <a href="blog-2.html" class="block bg-gradient-to-tr from-purple-300 to-purple-400 px-3 sm:px-5 py-2 sm:py-3 text-center text-[10px] sm:text-xs font-bold uppercase text-gray-900 hover:scale-105 transition-all duration-150 rounded-lg">
-                    Read Blog
-                    </a>
-                    </div>
+                    <div class="blog-content hidden md:flex flex-col flex-1 min-h-0 overflow-hidden transition-all duration-300">
+                        <div class="blog-body px-4 pb-4 border-s border-gray-900/10 sm:border-l-transparent flex flex-col flex-1 min-h-0">
+                        <p class="blog-summary mt-2 line-clamp-3 text-sm leading-relaxed text-gray-700 mb-4 flex-shrink-0">
+                        After AWS Cloud Practitioner, I pursued Developer Associate certification to master cloud-native development and serverless patterns.
+                        </p>
+                
+                        <div class="blog-footer flex justify-end mt-auto flex-shrink-0">
+                        <a href="blog-2.html" class="block bg-gradient-to-tr from-purple-300 to-purple-400 px-4 sm:px-5 py-2.5 sm:py-3 text-center text-xs font-bold uppercase text-gray-900 hover:scale-105 transition-all duration-150 rounded-lg shadow-sm">
+                        Read Blog
+                        </a>
+                        </div>
+                        </div>
                     </div>
                 </article>
 
                 <!-- Second Blog Article - Oct 2025 -->
-                <article class="w-full max-w-sm h-auto bg-gradient-to-t from-white to-purple-200 rounded-lg font-sfpro transition hover:shadow-xl flex flex-col">
-                    <div class="p-1 sm:p-2">
-                    <time datetime="2025-10-20" class=" px-5 flex items-center justify-between gap-2 sm:gap-4 text-[10px] sm:text-xs font-bold uppercase text-bgColour">
-                    <span>2025</span>
-                    <span class="w-px flex-1 bg-bgColour"></span>
-                    <span>Oct 20</span>
-                    </time>
+                <article class="blog-card w-full max-w-sm h-full bg-gradient-to-t from-white to-purple-200 rounded-lg font-sfpro transition-all duration-300 flex flex-col shadow-md overflow-hidden">
+                    <div class="blog-header cursor-pointer md:cursor-default flex-shrink-0" onclick="toggleBlog(this)">
+                        <div class="p-2 sm:p-2">
+                        <time datetime="2025-10-20" class="px-4 sm:px-5 flex items-center justify-between gap-2 sm:gap-4 text-xs sm:text-xs font-bold uppercase text-bgColour">
+                        <span>2025</span>
+                        <span class="w-px flex-1 bg-bgColour"></span>
+                        <span>Oct 20</span>
+                        </time>
+                        </div>
+                
+                        <div class="flex justify-center items-center bg-white/50">
+                        <img alt="" src="/assets/revamp.png" class="w-full h-48 sm:max-h-56 object-contain sm:object-cover" />
+                        </div>
+                
+                        <div class="p-4 sm:p-4">
+                        <div class="flex items-center justify-between">
+                            <a href="blog-3.html" class="hover:opacity-80 transition-opacity flex-1" onclick="event.stopPropagation()">
+                            <h3 class="blog-title font-bold text-base sm:text-lg uppercase text-bgColour leading-tight pr-2">Redesigning CK Notary: My Process Behind Transforming a Local Business Website</h3>
+                            </a>
+                            <button class="blog-toggle md:hidden text-bgColour hover:text-purple-600 transition-colors flex-shrink-0 ml-2" aria-label="Toggle blog details">
+                                <i class="fa-solid fa-chevron-down transition-transform duration-300"></i>
+                            </button>
+                        </div>
+                        </div>
                     </div>
             
-                    <div class="flex-1 flex justify-center items-center">
-                    <img alt="" src="/assets/revamp.png" class="max-h-40 sm:max-h-56 w-auto object-cover rounded-t-lg" />
-                    </div>
-            
-                    <div class="flex flex-1 flex-col justify-between p-2 sm:p-4 border-s border-gray-900/10 sm:border-l-transparent">
-                    <a href="blog-3.html">
-                    <h3 class="font-bold text-sm sm:text-lg uppercase text-bgColour">Redesigning CK Notary: My Process Behind Transforming a Local Business Website</h3>
-                    </a>
-            
-                    <p class="mt-1 sm:mt-2 line-clamp-3 text-xs sm:text-sm/relaxed text-gray-700">
-                    I redesigned the CK Notary website from scratch, modernizing their online presence while maintaining core business identity and improving experience.
-                    </p>
-            
-                    <div class="flex justify-end mt-3 sm:mt-4">
-                    <a href="blog-3.html" class="block bg-gradient-to-tr from-purple-300 to-purple-400 px-3 sm:px-5 py-2 sm:py-3 text-center text-[10px] sm:text-xs font-bold uppercase text-gray-900 hover:scale-105 transition-all duration-150 rounded-lg">
-                    Read Blog
-                    </a>
-                    </div>
+                    <div class="blog-content hidden md:flex flex-col flex-1 min-h-0 overflow-hidden transition-all duration-300">
+                        <div class="blog-body px-4 pb-4 border-s border-gray-900/10 sm:border-l-transparent flex flex-col flex-1 min-h-0">
+                        <p class="blog-summary mt-2 line-clamp-3 text-sm leading-relaxed text-gray-700 mb-4 flex-shrink-0">
+                        I redesigned the CK Notary website from scratch, modernizing their online presence while maintaining core business identity and improving experience.
+                        </p>
+                
+                        <div class="blog-footer flex justify-end mt-auto flex-shrink-0">
+                        <a href="blog-3.html" class="block bg-gradient-to-tr from-purple-300 to-purple-400 px-4 sm:px-5 py-2.5 sm:py-3 text-center text-xs font-bold uppercase text-gray-900 hover:scale-105 transition-all duration-150 rounded-lg shadow-sm">
+                        Read Blog
+                        </a>
+                        </div>
+                        </div>
                     </div>
                 </article>
 
                 <!-- Third Blog Article - Feb 2025 -->
-                <article class="w-full max-w-sm h-auto bg-gradient-to-t from-white to-purple-200 rounded-lg font-sfpro transition hover:shadow-xl flex flex-col">
-                    <div class="p-1 sm:p-2">
-                    <time datetime="2025-02-01" class=" px-5 flex items-center justify-between gap-2 sm:gap-4 text-[10px] sm:text-xs font-bold uppercase text-bgColour">
-                    <span>2025</span>
-                    <span class="w-px flex-1 bg-bgColour"></span>
-                    <span>Feb 01</span>
-                    </time>
+                <article class="blog-card w-full max-w-sm h-full bg-gradient-to-t from-white to-purple-200 rounded-lg font-sfpro transition-all duration-300 flex flex-col shadow-md overflow-hidden">
+                    <div class="blog-header cursor-pointer md:cursor-default flex-shrink-0" onclick="toggleBlog(this)">
+                        <div class="p-2 sm:p-2">
+                        <time datetime="2025-02-01" class="px-4 sm:px-5 flex items-center justify-between gap-2 sm:gap-4 text-xs sm:text-xs font-bold uppercase text-bgColour">
+                        <span>2025</span>
+                        <span class="w-px flex-1 bg-bgColour"></span>
+                        <span>Feb 01</span>
+                        </time>
+                        </div>
+                
+                        <div class="flex justify-center items-center bg-white/50">
+                        <img alt="" src="/assets/cybird.png" class="w-full h-48 sm:max-h-56 object-contain sm:object-cover" />
+                        </div>
+                
+                        <div class="p-4 sm:p-4">
+                        <div class="flex items-center justify-between">
+                            <a href="blog-5.html" class="hover:opacity-80 transition-opacity flex-1" onclick="event.stopPropagation()">
+                            <h3 class="blog-title font-bold text-base sm:text-lg uppercase text-bgColour leading-tight pr-2">How I Landed My Internship at Cybird — A Story of One Cold Email and a Lot of Momentum</h3>
+                            </a>
+                            <button class="blog-toggle md:hidden text-bgColour hover:text-purple-600 transition-colors flex-shrink-0 ml-2" aria-label="Toggle blog details">
+                                <i class="fa-solid fa-chevron-down transition-transform duration-300"></i>
+                            </button>
+                        </div>
+                        </div>
                     </div>
             
-                    <div class="flex-1 flex justify-center items-center">
-                    <img alt="" src="/assets/cybird.png" class="max-h-40 sm:max-h-56 w-auto object-cover rounded-t-lg" />
-                    </div>
-            
-                    <div class="flex flex-1 flex-col justify-between p-2 sm:p-4 border-s border-gray-900/10 sm:border-l-transparent">
-                    <a href="blog-5.html">
-                    <h3 class="font-bold text-sm sm:text-lg uppercase text-bgColour">How I Landed My Internship at Cybird — A Story of One Cold Email and a Lot of Momentum</h3>
-                    </a>
-            
-                    <p class="mt-1 sm:mt-2 line-clamp-3 text-xs sm:text-sm/relaxed text-gray-700">
-                    My internship at Cybird began with cold email to CEO. I took shot, hit send, and that email opened door.
-                    </p>
-            
-                    <div class="flex justify-end mt-3 sm:mt-4">
-                    <a href="blog-5.html" class="block bg-gradient-to-tr from-purple-300 to-purple-400 px-3 sm:px-5 py-2 sm:py-3 text-center text-[10px] sm:text-xs font-bold uppercase text-gray-900 hover:scale-105 transition-all duration-150 rounded-lg">
-                    Read Blog
-                    </a>
-                    </div>
-                    </div>
-                </article>
-
-                <!-- Fourth Blog Article - Nov 2024 -->
-                <article class="w-full max-w-sm h-auto bg-gradient-to-t from-white to-purple-200 rounded-lg font-sfpro transition hover:shadow-xl flex flex-col">
-                    <div class="p-1 sm:p-2">
-                    <time datetime="2022-10-10" class=" px-5 flex items-center justify-between gap-2 sm:gap-4 text-[10px] sm:text-xs font-bold uppercase text-bgColour">
-                    <span>2024</span>
-                    <span class="w-px flex-1 bg-bgColour"></span>
-                    <span>Nov 15</span>
-                    </time>
-                    </div>
-            
-                    <div class="flex-1 flex justify-center items-center">
-                    <img alt="" src="/assets/cloud_challenge.png" class="max-h-40 sm:max-h-56 w-auto object-cover rounded-t-lg" />
-                    </div>
-            
-                    <div class="flex flex-1 flex-col justify-between p-2 sm:p-4 border-s border-gray-900/10 sm:border-l-transparent">
-                    <a href="blog-1.html">
-                    <h3 class="font-bold text-sm sm:text-lg uppercase text-bgColour">Leveling Up with the AWS Cloud Resume Challenge</h3>
-                    </a>
-            
-                    <p class="mt-1 sm:mt-2 line-clamp-3 text-xs sm:text-sm/relaxed text-gray-700">
-                    Level up your cloud skills with the AWS Cloud Resume Challenge. Build a portfolio project, learn new technologies, boost career.
-                    </p>
-            
-                    <div class="flex justify-end mt-3 sm:mt-4">
-                    <a href="blog-1.html" class="block bg-gradient-to-tr from-purple-300 to-purple-400 px-3 sm:px-5 py-2 sm:py-3 text-center text-[10px] sm:text-xs font-bold uppercase text-gray-900 hover:scale-105 transition-all duration-150 rounded-lg">
-                    Read Blog
-                    </a>
-                    </div>
+                    <div class="blog-content hidden md:flex flex-col flex-1 min-h-0 overflow-hidden transition-all duration-300">
+                        <div class="blog-body px-4 pb-4 border-s border-gray-900/10 sm:border-l-transparent flex flex-col flex-1 min-h-0">
+                        <p class="blog-summary mt-2 line-clamp-3 text-sm leading-relaxed text-gray-700 mb-4 flex-shrink-0">
+                        My internship at Cybird began with cold email to CEO. I took shot, hit send, and that email opened door.
+                        </p>
+                
+                        <div class="blog-footer flex justify-end mt-auto flex-shrink-0">
+                        <a href="blog-5.html" class="block bg-gradient-to-tr from-purple-300 to-purple-400 px-4 sm:px-5 py-2.5 sm:py-3 text-center text-xs font-bold uppercase text-gray-900 hover:scale-105 transition-all duration-150 rounded-lg shadow-sm">
+                        Read Blog
+                        </a>
+                        </div>
+                        </div>
                     </div>
                 </article>
 
-                <!-- Fifth Blog Article - Oldest (Oct 2024) -->
-                <article class="w-full max-w-sm h-auto bg-gradient-to-t from-white to-purple-200 rounded-lg font-sfpro transition hover:shadow-xl flex flex-col">
-                    <div class="p-1 sm:p-2">
-                    <time datetime="2024-10-29" class=" px-5 flex items-center justify-between gap-2 sm:gap-4 text-[10px] sm:text-xs font-bold uppercase text-bgColour">
-                    <span>2024</span>
-                    <span class="w-px flex-1 bg-bgColour"></span>
-                    <span>Oct 29</span>
-                    </time>
+                <!-- Fourth Blog Article - Jan 2025 -->
+                <article class="blog-card w-full max-w-sm h-full bg-gradient-to-t from-white to-purple-200 rounded-lg font-sfpro transition-all duration-300 flex flex-col shadow-md overflow-hidden">
+                    <div class="blog-header cursor-pointer md:cursor-default flex-shrink-0" onclick="toggleBlog(this)">
+                        <div class="p-2 sm:p-2">
+                        <time datetime="2025-01-01" class="px-4 sm:px-5 flex items-center justify-between gap-2 sm:gap-4 text-xs sm:text-xs font-bold uppercase text-bgColour">
+                        <span>2025</span>
+                        <span class="w-px flex-1 bg-bgColour"></span>
+                        <span>Jan 01</span>
+                        </time>
+                        </div>
+                
+                        <div class="flex justify-center items-center bg-white/50">
+                        <img alt="" src="/assets/kalview.png" class="w-full h-48 sm:max-h-56 object-contain sm:object-cover" />
+                        </div>
+                
+                        <div class="p-4 sm:p-4">
+                        <div class="flex items-center justify-between">
+                            <a href="blog-6.html" class="hover:opacity-80 transition-opacity flex-1" onclick="event.stopPropagation()">
+                            <h3 class="blog-title font-bold text-base sm:text-lg uppercase text-bgColour leading-tight pr-2">Building the Kal View Cafe Food Ordering App — My Demo Prototype for COSC Course Project</h3>
+                            </a>
+                            <button class="blog-toggle md:hidden text-bgColour hover:text-purple-600 transition-colors flex-shrink-0 ml-2" aria-label="Toggle blog details">
+                                <i class="fa-solid fa-chevron-down transition-transform duration-300"></i>
+                            </button>
+                        </div>
+                        </div>
                     </div>
             
-                    <div class="flex-1 flex justify-center items-center">
-                    <img alt="" src="/assets/cloudpractioner.png" class="max-h-40 sm:max-h-56 w-auto object-cover rounded-t-lg" />
+                    <div class="blog-content hidden md:flex flex-col flex-1 min-h-0 overflow-hidden transition-all duration-300">
+                        <div class="blog-body px-4 pb-4 border-s border-gray-900/10 sm:border-l-transparent flex flex-col flex-1 min-h-0">
+                        <p class="blog-summary mt-2 line-clamp-3 text-sm leading-relaxed text-gray-700 mb-4 flex-shrink-0">
+                        Built demo food-ordering web app for Kal View Cafe using LAMP stack, Tailwind CSS, and secure authentication for COSC project.
+                        </p>
+                
+                        <div class="blog-footer flex justify-end mt-auto flex-shrink-0">
+                        <a href="blog-6.html" class="block bg-gradient-to-tr from-purple-300 to-purple-400 px-4 sm:px-5 py-2.5 sm:py-3 text-center text-xs font-bold uppercase text-gray-900 hover:scale-105 transition-all duration-150 rounded-lg shadow-sm">
+                        Read Blog
+                        </a>
+                        </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Fifth Blog Article - Nov 2024 -->
+                <article class="blog-card w-full max-w-sm h-full bg-gradient-to-t from-white to-purple-200 rounded-lg font-sfpro transition-all duration-300 flex flex-col shadow-md overflow-hidden">
+                    <div class="blog-header cursor-pointer md:cursor-default flex-shrink-0" onclick="toggleBlog(this)">
+                        <div class="p-2 sm:p-2">
+                        <time datetime="2022-10-10" class="px-4 sm:px-5 flex items-center justify-between gap-2 sm:gap-4 text-xs sm:text-xs font-bold uppercase text-bgColour">
+                        <span>2024</span>
+                        <span class="w-px flex-1 bg-bgColour"></span>
+                        <span>Nov 15</span>
+                        </time>
+                        </div>
+                
+                        <div class="flex justify-center items-center bg-white/50">
+                        <img alt="" src="/assets/cloud_challenge.png" class="w-full h-48 sm:max-h-56 object-contain sm:object-cover" />
+                        </div>
+                
+                        <div class="p-4 sm:p-4">
+                        <div class="flex items-center justify-between">
+                            <a href="blog-1.html" class="hover:opacity-80 transition-opacity flex-1" onclick="event.stopPropagation()">
+                            <h3 class="blog-title font-bold text-base sm:text-lg uppercase text-bgColour leading-tight pr-2">Leveling Up with the AWS Cloud Resume Challenge</h3>
+                            </a>
+                            <button class="blog-toggle md:hidden text-bgColour hover:text-purple-600 transition-colors flex-shrink-0 ml-2" aria-label="Toggle blog details">
+                                <i class="fa-solid fa-chevron-down transition-transform duration-300"></i>
+                            </button>
+                        </div>
+                        </div>
                     </div>
             
-                    <div class="flex flex-1 flex-col justify-between p-2 sm:p-4 border-s border-gray-900/10 sm:border-l-transparent">
-                    <a href="blog-4.html">
-                    <h3 class="font-bold text-sm sm:text-lg uppercase text-bgColour">How I Cleared the AWS Certified Cloud Practitioner (My Beginner-Friendly Journey)</h3>
-                    </a>
-            
-                    <p class="mt-1 sm:mt-2 line-clamp-3 text-xs sm:text-sm/relaxed text-gray-700">
-                    My first cloud certification journey that laid the foundation for everything I built afterward, including portfolio website hosted on AWS.
-                    </p>
-            
-                    <div class="flex justify-end mt-3 sm:mt-4">
-                    <a href="blog-4.html" class="block bg-gradient-to-tr from-purple-300 to-purple-400 px-3 sm:px-5 py-2 sm:py-3 text-center text-[10px] sm:text-xs font-bold uppercase text-gray-900 hover:scale-105 transition-all duration-150 rounded-lg">
-                    Read Blog
-                    </a>
+                    <div class="blog-content hidden md:flex flex-col flex-1 min-h-0 overflow-hidden transition-all duration-300">
+                        <div class="blog-body px-4 pb-4 border-s border-gray-900/10 sm:border-l-transparent flex flex-col flex-1 min-h-0">
+                        <p class="blog-summary mt-2 line-clamp-3 text-sm leading-relaxed text-gray-700 mb-4 flex-shrink-0">
+                        Level up your cloud skills with the AWS Cloud Resume Challenge. Build a portfolio project, learn new technologies, boost career.
+                        </p>
+                
+                        <div class="blog-footer flex justify-end mt-auto flex-shrink-0">
+                        <a href="blog-1.html" class="block bg-gradient-to-tr from-purple-300 to-purple-400 px-4 sm:px-5 py-2.5 sm:py-3 text-center text-xs font-bold uppercase text-gray-900 hover:scale-105 transition-all duration-150 rounded-lg shadow-sm">
+                        Read Blog
+                        </a>
+                        </div>
+                        </div>
                     </div>
+                </article>
+
+                <!-- Sixth Blog Article - Oldest (Oct 2024) -->
+                <article class="blog-card w-full max-w-sm h-full bg-gradient-to-t from-white to-purple-200 rounded-lg font-sfpro transition-all duration-300 flex flex-col shadow-md overflow-hidden">
+                    <div class="blog-header cursor-pointer md:cursor-default flex-shrink-0" onclick="toggleBlog(this)">
+                        <div class="p-2 sm:p-2">
+                        <time datetime="2024-10-29" class="px-4 sm:px-5 flex items-center justify-between gap-2 sm:gap-4 text-xs sm:text-xs font-bold uppercase text-bgColour">
+                        <span>2024</span>
+                        <span class="w-px flex-1 bg-bgColour"></span>
+                        <span>Oct 29</span>
+                        </time>
+                        </div>
+                
+                        <div class="flex justify-center items-center bg-white/50">
+                        <img alt="" src="/assets/cloudpractioner.png" class="w-full h-48 sm:max-h-56 object-contain sm:object-cover" />
+                        </div>
+                
+                        <div class="p-4 sm:p-4">
+                        <div class="flex items-center justify-between">
+                            <a href="blog-4.html" class="hover:opacity-80 transition-opacity flex-1" onclick="event.stopPropagation()">
+                            <h3 class="blog-title font-bold text-base sm:text-lg uppercase text-bgColour leading-tight pr-2">How I Cleared the AWS Certified Cloud Practitioner (My Beginner-Friendly Journey)</h3>
+                            </a>
+                            <button class="blog-toggle md:hidden text-bgColour hover:text-purple-600 transition-colors flex-shrink-0 ml-2" aria-label="Toggle blog details">
+                                <i class="fa-solid fa-chevron-down transition-transform duration-300"></i>
+                            </button>
+                        </div>
+                        </div>
+                    </div>
+            
+                    <div class="blog-content hidden md:flex flex-col flex-1 min-h-0 overflow-hidden transition-all duration-300">
+                        <div class="blog-body px-4 pb-4 border-s border-gray-900/10 sm:border-l-transparent flex flex-col flex-1 min-h-0">
+                        <p class="blog-summary mt-2 line-clamp-3 text-sm leading-relaxed text-gray-700 mb-4 flex-shrink-0">
+                        My first cloud certification journey that laid the foundation for everything I built afterward, including portfolio website hosted on AWS.
+                        </p>
+                
+                        <div class="blog-footer flex justify-end mt-auto flex-shrink-0">
+                        <a href="blog-4.html" class="block bg-gradient-to-tr from-purple-300 to-purple-400 px-4 sm:px-5 py-2.5 sm:py-3 text-center text-xs font-bold uppercase text-gray-900 hover:scale-105 transition-all duration-150 rounded-lg shadow-sm">
+                        Read Blog
+                        </a>
+                        </div>
+                        </div>
                     </div>
                 </article>
                     
@@ -390,6 +594,42 @@
     // Initialize particle system when page loads
     document.addEventListener('DOMContentLoaded', () => {
         new ParticleSystem();
+    });
+
+    // Blog card expand/collapse functionality for mobile
+    function toggleBlog(header) {
+        // Only work on mobile screens
+        if (window.innerWidth >= 768) return;
+        
+        const article = header.closest('.blog-card');
+        const content = article.querySelector('.blog-content');
+        const toggleIcon = header.querySelector('.blog-toggle i');
+        
+        if (content) {
+            const isExpanded = !content.classList.contains('hidden');
+            
+            if (isExpanded) {
+                // Collapse
+                content.classList.add('hidden');
+                toggleIcon.style.transform = 'rotate(0deg)';
+            } else {
+                // Expand
+                content.classList.remove('hidden');
+                toggleIcon.style.transform = 'rotate(180deg)';
+            }
+        }
+    }
+
+    // Handle window resize - show all content on desktop
+    window.addEventListener('resize', () => {
+        if (window.innerWidth >= 768) {
+            document.querySelectorAll('.blog-content').forEach(content => {
+                content.classList.remove('hidden');
+            });
+            document.querySelectorAll('.blog-toggle i').forEach(icon => {
+                icon.style.transform = 'rotate(180deg)';
+            });
+        }
     });
 </script>
 </html>
